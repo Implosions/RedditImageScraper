@@ -6,7 +6,7 @@ sfp_flatfile = "savefilepath.txt"
 helpMsg = """\nsubreddit: The name of the subreddit
 sort parameters: 'top', 'hot', 'new', 'rising', 'controversial', 'random'
 time parameters: 'hour', 'day', 'week', 'month', 'year', 'all'
-limit: the number posts to return between 25 and 100\n"""
+limit: the number posts to return from 25 to 100\n"""
 
 def hasValidSaveDir():
     if os.path.isfile(sfp_flatfile):
@@ -99,10 +99,10 @@ while(True):
             continue
         try:
             if not int(limit) >= 25 and int(limit) <= 100:
-                print("Error! Limit must be between 25 and 100")
+                print("Error! Limit must be a number from 25 to 100")
                 continue
         except ValueError:
-            print("Error! Limit must be a number between 25 and 100")
+            print("Error! Limit must be a number from 25 to 100")
             continue
         
         download(subreddit, sort, time, limit)

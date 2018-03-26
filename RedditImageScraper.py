@@ -1,7 +1,7 @@
 # RedditImageScraper
 # Author: Implosions
 
-import requests, shutil, os.path, sys, argparse
+import requests, os.path, argparse
 
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument("subreddit", help = "The subreddit to download images from")

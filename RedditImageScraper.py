@@ -7,16 +7,16 @@ arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument("subreddit", help = "The subreddit to download images from")
 arg_parser.add_argument("sort", help = "top, hot, rising, new, random, controversial")
 arg_parser.add_argument("time", help = "year, month, week, day, hour, all")
-arg_parser.add_argument("limit", type=int, help = "The number of posts to scrape images from (from 25 to 100)")
+arg_parser.add_argument("limit", type=int, help="The number of posts to scrape images from (from 25 to 100)")
 arg_parser.add_argument("-d", "--dir", help="The directory to save the images to")
-sortParams = {'top', 'hot', 'new', 'rising', 'controversial', 'random'}
-timeParams = {'hour', 'day', 'week', 'month', 'year', 'all'}
+sortParams = {"top", "hot", "new", "rising", "controversial", "random"}
+timeParams = {"hour", "day", "week", "month", "year", "all"}
 
 def download(subreddit, sort, time, limit, savedir=os.getcwd()):
     url = "https://www.reddit.com/r/" + subreddit + ".json"
     data = ""
-    headers = {'user-agent': 'RedditImageScraper Version 1.0.0'}
-    p = {'sort': sort, 't': time, 'limit': limit}
+    headers = {"user-agent": "RedditImageScraper https://github.com/Implosions/RedditImageScraper"}
+    p = {"sort": sort, "t": time, "limit": limit}
     
     r = requests.get(url, headers=headers, params=p)
 
@@ -27,7 +27,7 @@ def download(subreddit, sort, time, limit, savedir=os.getcwd()):
         try:
             imageurl = i["data"]["url"]
             r = requests.get(imageurl, stream=True)
-            tokens = r.headers['content-type'].split("/")
+            tokens = r.headers["content-type"].split("/")
             ext = ""
             if tokens[0] == "image":
                 urltokens = imageurl.split("/")

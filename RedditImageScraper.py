@@ -1,3 +1,6 @@
+# RedditImageScraper
+# Author: Implosions
+
 import requests, shutil, os.path, sys, argparse
 
 arg_parser = argparse.ArgumentParser()

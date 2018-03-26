@@ -22,7 +22,7 @@ def download(subreddit, sort, time, limit, savedir=os.getcwd()):
 
     data = r.json()
 
-    count = 1
+    count = 0
     for i in data["data"]["children"]:
         try:
             imageurl = i["data"]["url"]

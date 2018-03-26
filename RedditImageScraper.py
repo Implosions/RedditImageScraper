@@ -48,21 +48,21 @@ def download(subreddit, sort, time, limit, savedir=os.getcwd()):
 args = arg_parser.parse_args()
 
 if not args.sort in sortParams:
-	print("Error! Unrecognized sort parameter")
-	exit()
+    print("Error! Unrecognized sort parameter")
+    exit()
 if not args.time in timeParams:
-	print("Error! Unrecognized time parameter")
-	exit()
+    print("Error! Unrecognized time parameter")
+    exit()
 if not args.limit >= 25 and args.limit <= 100:
-	print("Error! Limit must be a number from 25 to 100")
-	exit()
+    print("Error! Limit must be a number from 25 to 100")
+    exit()
 if not args.dir == None:
-	if not os.path.isdir(args.dir):
-		print("Error! Invalid save directory")
-		exit()
-	else:
-		download(args.subreddit, args.sort, args.time, args.limit, args.dir)
+    if not os.path.isdir(args.dir):
+        print("Error! Invalid save directory")
+        exit()
+    else:
+        download(args.subreddit, args.sort, args.time, args.limit, args.dir)
 else:
-	download(args.subreddit, args.sort, args.time, args.limit)
-	
+    download(args.subreddit, args.sort, args.time, args.limit)
+    
 print("Completed!")
